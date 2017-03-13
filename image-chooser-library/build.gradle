@@ -18,7 +18,7 @@ signing {
     sign configurations.archives
 }
 
-uploadArchives {
+/*uploadArchives {
     configuration = configurations.archives
     repositories.mavenDeployer {
         beforeDeployment {
@@ -63,7 +63,7 @@ uploadArchives {
             }
         }
     }
-}
+}*/
 
 android {
     compileSdkVersion 23
