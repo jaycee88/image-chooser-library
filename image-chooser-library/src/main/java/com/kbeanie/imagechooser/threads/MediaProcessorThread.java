@@ -221,15 +221,26 @@ public abstract class MediaProcessorThread extends Thread {
             int what = w > l ? w : l;
 
             Options options = new Options();
-            if (what > 3000) {
+//             if (what > 3000) {
+//                 options.inSampleSize = scale * 6;
+//             } else if (what > 2000 && what <= 3000) {
+//                 options.inSampleSize = scale * 5;
+//             } else if (what > 1500 && what <= 2000) {
+//                 options.inSampleSize = scale * 4;
+//             } else if (what > 1000 && what <= 1500) {
+//                 options.inSampleSize = scale * 3;
+//             } else if (what > 400 && what <= 1000) {
+//                 options.inSampleSize = scale * 2;
+//             } else {
+//                 options.inSampleSize = scale;
+//             }
+            if (what > 5000) {
                 options.inSampleSize = scale * 6;
-            } else if (what > 2000 && what <= 3000) {
-                options.inSampleSize = scale * 5;
-            } else if (what > 1500 && what <= 2000) {
+            } else if (what > 3000 && what <= 5000) {
                 options.inSampleSize = scale * 4;
-            } else if (what > 1000 && what <= 1500) {
+            } else if (what > 2000 && what <= 3000) {
                 options.inSampleSize = scale * 3;
-            } else if (what > 400 && what <= 1000) {
+            } else if (what > 1200 && what <= 2000) {
                 options.inSampleSize = scale * 2;
             } else {
                 options.inSampleSize = scale;
@@ -262,7 +273,7 @@ public abstract class MediaProcessorThread extends Thread {
                         bitmap.getHeight(), matrix, false);
             }
 
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 60, stream);
 
             return file.getAbsolutePath();
 
